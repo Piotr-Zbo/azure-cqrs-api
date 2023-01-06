@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "AzureCqrs.CommandApi": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7025",
+      "launchBrowser": false
+    }
+  }
+}
