@@ -1,6 +1,5 @@
 using AzureCqrs.Api.Services;
 using AzureCqrs.Infrastructure.Integration;
-using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -17,11 +17,11 @@ public class UpdateCandidateCommand
     /// First name of a candidate.
     /// </summary>
     [Required]
-    public string FirstName { get; set; }
+    public string FirstName { get; set; } = string.Empty;
 
     /// <summary>
     /// Last name of a candidate.
     /// </summary>
     [Required]
-    public string LastName { get; set; }
+    public string LastName { get; set; } = string.Empty;
 }
