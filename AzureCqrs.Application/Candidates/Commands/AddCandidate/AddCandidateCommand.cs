@@ -7,7 +7,7 @@ namespace AzureCqrs.Application.Candidates.Commands.AddCandidate;
 /// <summary>
 /// Command for creating new candidate.
 /// </summary>
-public class AddCandidateCommand : IRequest<Result<Guid>>
+public class AddCandidateCommand : IRequest<OperationResult<Guid>>
 {
     /// <summary>
     /// Candidate Id

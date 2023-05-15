@@ -1,7 +1,5 @@
-using System;
 using System.IO;
 using System.Threading.Tasks;
-using AzureFunctions.Extensions.Swashbuckle.Attribute;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -9,7 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace AzureCqrs.CommandApi.Queries.Candidates;
+namespace AzureCqrs.Api.Candidates.Queries;
 
 public static class GetCandidate
 {
@@ -21,7 +19,7 @@ public static class GetCandidate
     /// <returns></returns>
     [FunctionName("GetCandidate")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public static async Task<IActionResult> RunAsync(
+    public static async Task<IActionResult> GetCandidateAsync(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "v2/candidate/{id}")] HttpRequest req, ILogger log)
     {
         string name = req.Query["name"];

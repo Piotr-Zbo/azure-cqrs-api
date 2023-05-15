@@ -1,0 +1,42 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Publish AzureCqrs.Api to Azure" type="AzureFunctionAppPublish" factoryName="Azure Function App">
+    <option name="AZURE_FUNCTION_APP_PROJECT" value="$PROJECT_DIR$/AzureCqrs.Api/AzureCqrs.Api.csproj" />
+    <option name="AZURE_FUNCTION_APP_SUBSCRIPTION_ID" value="e3af6bc8-389e-449c-bf64-e02bafd69071" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_APP" value="0" />
+    <option name="AZURE_FUNCTION_APP_ID" value="/subscriptions/e3af6bc8-389e-449c-bf64-e02bafd69071/resourceGroups/candidates-azure-cqrs-upskill-rg/providers/Microsoft.Web/sites/func-candidates-api" />
+    <option name="AZURE_FUNCTION_APP_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_RESOURCE_GROUP" value="0" />
+    <option name="AZURE_FUNCTION_APP_RESOURCE_GROUP_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_APP_SERVICE_PLAN" value="0" />
+    <option name="AZURE_FUNCTION_APP_SERVICE_PLAN_ID" value="/subscriptions/e3af6bc8-389e-449c-bf64-e02bafd69071/resourceGroups/candidates-azure-cqrs-upskill-rg/providers/Microsoft.Web/serverfarms/ASP-candidatesazurecqrsupskillrg-99eb" />
+    <option name="AZURE_FUNCTION_APP_SERVICE_PLAN_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_LOCATION" value="eastus" />
+    <option name="AZURE_FUNCTION_APP_PRICING_TIER" value="" />
+    <option name="AZURE_FUNCTION_APP_OPERATING_SYSTEM" value="WINDOWS" />
+    <option name="AZURE_FUNCTION_APP_RUNTIME" value="dotnet" />
+    <option name="AZURE_FUNCTION_APP_RUNTIMEVERSION" value="~4" />
+    <option name="AZURE_FUNCTION_APP_FXVERSION" value="dotnet|6.0" />
+    <option name="AZURE_FUNCTION_APP_IS_CREATE_STORAGE_ACCOUNT" value="0" />
+    <option name="AZURE_FUNCTION_APP_STORAGE_ACCOUNT_ID" value="/subscriptions/e3af6bc8-389e-449c-bf64-e02bafd69071/resourceGroups/candidates-azure-cqrs-upskill-rg/providers/Microsoft.Storage/storageAccounts/storage4candidates" />
+    <option name="AZURE_FUNCTION_APP_STORAGE_ACCOUNT_NAME" value="" />
+    <option name="AZURE_FUNCTION_APP_STORAGE_ACCOUNT_TYPE" value="Standard_LRS" />
+    <option name="AZURE_FUNCTION_APP_IS_DEPLOY_TO_SLOT" value="1" />
+    <option name="AZURE_FUNCTION_APP_SLOT_NAME" value="staging" />
+    <option name="AZURE_FUNCTION_APP_OPEN_BROWSER_PUBLISH" value="0" />
+    <option name="AZURE_SQL_DATABASE_SUBSCRIPTION_ID" value="e3af6bc8-389e-449c-bf64-e02bafd69071" />
+    <option name="AZURE_SQL_DATABASE_IS_ENABLED" value="0" />
+    <option name="AZURE_SQL_DATABASE_CONNECTION_STRING_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_IS_CREATE" value="0" />
+    <option name="AZURE_SQL_DATABASE_ID" value="" />
+    <option name="AZURE_SQL_DATABASE_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_IS_CREATE_RESOURCE_GROUP" value="0" />
+    <option name="AZURE_SQL_DATABASE_RESOURCE_GROUP_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_IS_CREATE_SQL_SERVER" value="0" />
+    <option name="AZURE_SQL_DATABASE_SQL_SERVER_ID" value="" />
+    <option name="AZURE_SQL_DATABASE_SQL_SERVER_NAME" value="" />
+    <option name="AZURE_SQL_DATABASE_SQL_SERVER_ADMIN_LOGIN" value="N/A" />
+    <option name="AZURE_SQL_DATABASE_LOCATION" value="eastus" />
+    <option name="AZURE_SQL_DATABASE_COLLATION" value="SQL_Latin1_General_CP1_CI_AS" />
+    <method v="2" />
+  </configuration>
+</component>

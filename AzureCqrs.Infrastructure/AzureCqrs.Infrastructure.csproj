@@ -11,10 +11,20 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Azure.Storage.Blobs" Version="12.12.0" />
       <PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.2.0" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+        <HintPath>..\..\..\..\..\.AzureToolsForIntelliJ\AzureFunctionsCoreTools\v4\4.30.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+        <HintPath>..\..\..\..\..\.AzureToolsForIntelliJ\AzureFunctionsCoreTools\v4\4.30.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

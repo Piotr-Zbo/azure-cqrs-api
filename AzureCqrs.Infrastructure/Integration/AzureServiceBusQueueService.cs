@@ -1,6 +1,6 @@
 using System.Text;
 using System.Text.Json;
-using AzureCqrs.Api.Services;
+using AzureCqrs.Application.Common.Interfaces;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -20,9 +20,10 @@ public class AzureServiceBusQueueService : IQueueService
 
     public async Task SendMessage<T>(T message, string queueName)
     {
-        var queueClient = new QueueClient(_configuration.GetConnectionString("AzureServiceBus"), queueName);
+        var queueClient = new QueueClient(_configuration.GetConnectionString("CandidatesApiServiceBus"), queueName);
         var messageBody = JsonSerializer.Serialize(message);
         var serviceBusMessage = new Message(Encoding.UTF8.GetBytes(messageBody));
+        serviceBusMessage.UserProperties["EventType"] = typeof(T).FullName;
 
         await queueClient.SendAsync(serviceBusMessage);
     }

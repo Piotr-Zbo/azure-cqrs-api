@@ -1,6 +1,8 @@
 using System;
 using System.Threading.Tasks;
+using AzureCqrs.Api.Common;
 using AzureCqrs.Application.Candidates.Commands.AddCandidate;
+using AzureCqrs.Application.Common.Models;
 using AzureFunctions.Extensions.Swashbuckle.Attribute;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -11,24 +13,47 @@ using Microsoft.Extensions.Logging;
 
 namespace AzureCqrs.Api.Candidates.Commands;
 
-public static class AddCandidate
+/// <summary>
+///
+/// </summary>
+public class AddCandidate : ApiFunction
 {
-    // [OpenApiOperation(operationId: "addCandidate", tags: new[] { "name" }, Summary = "Adds a new candidate entry")]
-    [FunctionName("AddCandidate")]
-    [ProducesResponseType(typeof(Guid), StatusCodes.Status200OK)]
-    public static async Task<IActionResult> RunAsync(
-        [RequestBodyType(typeof(AddCandidateCommand), "name")]
-        [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] AddCandidateCommand req,
-        ISender mediator,
-        ILogger log)
+    private readonly IMediator _mediator;
+    private readonly ILogger _logger;
+
+    public AddCandidate(IMediator mediator, ILogger<AddCandidate> logger)
     {
-        log.LogInformation("AddCandidate executing");
+        _mediator = mediator;
+        _logger = logger;
+    }
 
-        //string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        //var command = JsonConvert.DeserializeObject<AddCandidateCommand>(requestBody);
+    // [OpenApiOperation(operationId: "addCandidate", tags: new[] { "name" }, Summary = "Adds a new candidate entry")]
 
-        var candidateId = await mediator.Send(req);
+    /// <summary>
+    /// Adds a new candidate entry.
+    /// </summary>
+    /// <param name="req"></param>
+    /// <param name="log"></param>
+    /// <returns></returns>
+    [FunctionName("AddCandidate")]
+    [ProducesResponseType(typeof(OperationResult<Guid>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> AddCandidateAsync(
+        [RequestBodyType(typeof(AddCandidateCommand), "Add candidate command")]
+        [HttpTrigger(AuthorizationLevel.Function, "post", Route = "v2/candidates")]
+        AddCandidateCommand req)
+    {
+        _logger.LogInformation("AddCandidate executing for {@AddCandidateCommand}", req);
 
-        return new OkObjectResult(candidateId);
+        try
+        {
+            var addCandidateResult = await _mediator.Send(req);
+            _logger.LogInformation("AddCandidate finished with result {@AddCandidateResult}", addCandidateResult);
+            return GetActionResult(addCandidateResult);
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "AddCandidate failed");
+            throw;
+        }
     }
 }

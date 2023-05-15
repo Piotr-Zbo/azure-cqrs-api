@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCqrs.Api", "AzureCqrs.Api\AzureCqrs.Api.csproj", "{5CAC3663-83D2-48A5-A80E-9EA402B0B978}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCqrs.Client", "AzureCqrs.Client\AzureCqrs.Client.csproj", "{AE2F65A9-AA29-4BC4-996A-3F5892DF1A97}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{9D051837-805D-4D5E-9ADC-C607D02B4684}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -25,10 +23,6 @@ Global
 		{5CAC3663-83D2-48A5-A80E-9EA402B0B978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CAC3663-83D2-48A5-A80E-9EA402B0B978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CAC3663-83D2-48A5-A80E-9EA402B0B978}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AE2F65A9-AA29-4BC4-996A-3F5892DF1A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE2F65A9-AA29-4BC4-996A-3F5892DF1A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE2F65A9-AA29-4BC4-996A-3F5892DF1A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE2F65A9-AA29-4BC4-996A-3F5892DF1A97}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1B3C47C5-60BF-4535-BAC7-6791A983897D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1B3C47C5-60BF-4535-BAC7-6791A983897D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B3C47C5-60BF-4535-BAC7-6791A983897D}.Release|Any CPU.ActiveCfg = Release|Any CPU

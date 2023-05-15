@@ -1,10 +1,10 @@
-using AzureCqrs.Api.Services;
+using AzureCqrs.Application.Common.Interfaces;
 using AzureCqrs.Application.Common.Models;
 using MediatR;
 
 namespace AzureCqrs.Application.Candidates.Commands.AddCandidate;
 
-public class AddCandidateHandler : IRequestHandler<AddCandidateCommand, Result<Guid>>
+public class AddCandidateHandler : IRequestHandler<AddCandidateCommand, OperationResult<Guid>>
 {
     private readonly IQueueService _queueService;
 
@@ -13,10 +13,10 @@ public class AddCandidateHandler : IRequestHandler<AddCandidateCommand, Result<G
         _queueService = queueService;
     }
 
-    public async Task<Result<Guid>> Handle(AddCandidateCommand request, CancellationToken cancellationToken)
+    public async Task<OperationResult<Guid>> Handle(AddCandidateCommand request, CancellationToken cancellationToken)
     {
         request.Id = Guid.NewGuid();
         await _queueService.SendMessage(request, "sbq-candidates");
-        return Result<Guid>.Success(request.Id);
+        return OperationResult<Guid>.Success(request.Id);
     }
 }

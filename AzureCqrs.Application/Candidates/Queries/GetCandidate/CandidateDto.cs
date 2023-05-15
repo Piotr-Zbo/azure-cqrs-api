@@ -1,6 +1,6 @@
-namespace AzureCqrs.CommandApi.Models.Candidates;
+namespace AzureCqrs.Application.Candidates.Queries.GetCandidate;
 
 public class CandidateDto
 {
-    
+
 }

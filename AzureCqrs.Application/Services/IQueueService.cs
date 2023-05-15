@@ -1,4 +1,4 @@
-namespace AzureCqrs.Api.Services;
+namespace AzureCqrs.Application.Common.Interfaces;
 
 public interface IQueueService
 {

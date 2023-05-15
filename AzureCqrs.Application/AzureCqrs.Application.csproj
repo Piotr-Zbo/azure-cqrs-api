@@ -6,14 +6,35 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\AzureCqrs.Application.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\AzureCqrs.Application.xml</DocumentationFile>
+    </PropertyGroup>
+
     <ItemGroup>
       <Folder Include="Candidates\Events" />
       <Folder Include="Candidates\Queries\SearchCandidates" />
-      <Folder Include="Services" />
+      <Folder Include="Common\Interfaces" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Azure.Storage.Blobs" Version="12.12.0" />
       <PackageReference Include="MediatR" Version="11.1.0" />
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+        <HintPath>..\..\..\..\..\.AzureToolsForIntelliJ\AzureFunctionsCoreTools\v4\4.30.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AzureCqrs.Domain\AzureCqrs.Domain.csproj" />
     </ItemGroup>
 
 </Project>
