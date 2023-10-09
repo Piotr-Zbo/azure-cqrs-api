@@ -6,7 +6,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace AzureCqrs.Api.Candidates.Queues;
+namespace AzureCqrs.Api.Candidates.Events;
 
 public static class CandidateMessage
 {

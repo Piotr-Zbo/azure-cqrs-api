@@ -1,5 +1,5 @@
-using AzureCqrs.Application.Common.Interfaces;
 using AzureCqrs.Application.Common.Models;
+using AzureCqrs.Application.Common.Queue;
 using MediatR;
 
 namespace AzureCqrs.Application.Candidates.Commands.AddCandidate;

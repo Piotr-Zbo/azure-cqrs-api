@@ -1,6 +1,5 @@
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 
@@ -24,7 +23,7 @@ public class ImageUploaded
 
     [FunctionName("ImageUploaded")]
     public async Task ImageUploadedAsync(
-        [BlobTrigger("samples-workitems/{name}", Connection = "")]
+        [BlobTrigger("samples-workitems/{name}", Connection = "CandidatesStorage")]
         Stream myBlob,
         string name)
     {

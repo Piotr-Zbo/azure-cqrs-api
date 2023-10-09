@@ -1,34 +1,41 @@
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
+using AzureCqrs.Api.Common;
+using AzureCqrs.Application.Common.Models;
+using AzureCqrs.Domain.Entities;
 using AzureFunctions.Extensions.Swashbuckle.Attribute;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 
 namespace AzureCqrs.Api.Candidates.Queries;
 
-public static class SearchCandidates
+public class SearchCandidates : ApiFunction
 {
-    [FunctionName("SearchCandidates")]
-    [QueryStringParameter("id", "Id of candidate", DataType = typeof(Guid), Required = true)]
-    public static async Task<IActionResult> SearchCandidatesAsync(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req, ILogger log)
+    public SearchCandidates()
     {
-        log.LogInformation("C# HTTP trigger function processed a request.");
+    }
 
-        string name = req.Query["name"];
-
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
-        name = name ?? data?.name;
-
-        return name != null
-            ? (ActionResult)new OkObjectResult($"Hello, {name}")
-            : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-
+    [FunctionName("SearchCandidates")]
+    [ProducesResponseType(typeof(OperationResult<Candidate[]>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> SearchCandidatesAsync(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v2/candidates")]
+        HttpRequest req,
+        [Sql(
+            @"
+            SELECT TOP (100) [Id],[FirstName],[LastName],[Birthday],[City],[Skills],[Languages],[Certificates]
+            FROM [dbo].[Candidate]
+            ",
+            "CandidatesDb",
+            CommandType.Text)] IEnumerable<Candidate> items,
+        ILogger log)
+    {
+        var result = items.ToArray();
+        return GetActionResult(OperationResult<Candidate[]>.Success(result));
     }
 }

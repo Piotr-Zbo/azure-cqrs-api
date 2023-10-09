@@ -1,6 +1,6 @@
 using System.Text;
 using System.Text.Json;
-using AzureCqrs.Application.Common.Interfaces;
+using AzureCqrs.Application.Common.Queue;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;

@@ -1,5 +1,5 @@
 using Azure.Storage.Blobs;
-using AzureCqrs.Application.Common.Interfaces;
+using AzureCqrs.Application.Common.Queue;
 using AzureCqrs.Infrastructure.Integration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,9 +9,9 @@ public static class StartupRegistrations
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
     {
-        var connectionString = Environment.GetEnvironmentVariable("CandidatesStorage");
+         var connectionString = Environment.GetEnvironmentVariable("CandidatesStorage");
         services.AddTransient<IQueueService, AzureServiceBusQueueService>();
-        services.AddSingleton(x => new BlobServiceClient(connectionString));
+        //services.AddSingleton(x => new BlobServiceClient(connectionString));
 
         return services;
     }

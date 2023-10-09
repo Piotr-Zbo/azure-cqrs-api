@@ -8,7 +8,7 @@ public class Candidate
 
     public string LastName { get; set; }
 
-    public DateOnly Birthday { get; set; }
+    public DateTimeOffset? Birthday { get; set; }
 
     public string City { get; set; }
 
